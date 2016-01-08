@@ -1,8 +1,8 @@
 example:
-	cp example.swift main.swift
+	cp tests/example.swift tests/main.swift
 	sh ./tests/make_example.sh
 	./example
-	rm main.swift example
+	rm tests/main.swift example
 
 test:
 	make test-equal-osx
