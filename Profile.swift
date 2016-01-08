@@ -41,17 +41,13 @@ func equal<T:Equatable>(label: String, test: () -> [T], expect:[T]) throws {
     }
 
     if result != expect {
+
         throw TestingError.NotEqualError(message:"Output: \(result)\nExpect: \(expect).")
     }
 
     colorPrint("[\(label)] pass.", color:"blue")
-    if result.count > 20 {
-        colorPrint("Output: \(result[0..<5])...\(result[(result.count-5)..<(result.count-1)])", color:"cyan")
-        colorPrint("Expect: \(expect[0..<5])...\(expect[(result.count-5)..<(expect.count-1)])", color:"cyan")
-    } else {
-        colorPrint("Output: \(result)", color:"cyan")
-        colorPrint("Expect: \(expect)", color:"cyan")
-    }
+    colorPrint("Output: \(result)", color:"cyan")
+    colorPrint("Expect: \(expect)", color:"cyan")
 }
 
 func testEqual<T:Equatable>(label: String, test:() -> T, expect: T) {
