@@ -1,3 +1,9 @@
+example:
+	cp example.swift main.swift
+	sh ./tests/make_example.sh
+	./example
+	rm main.swift example
+
 test:
 	make test-equal-osx
 	make test-utilities-osx

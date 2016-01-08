@@ -1,0 +1,1 @@
+xcrun -sdk macosx swiftc $(ls | grep -v example | grep swift) -o example
