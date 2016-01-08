@@ -1,5 +1,6 @@
 test:
 	make test-equal-osx
+	make test-utilities-osx
 
 test-utilities-osx:
 	cp tests/test_utilities.swift main.swift
