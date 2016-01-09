@@ -132,6 +132,7 @@ func testEqualInTol(label: String, test:() -> [Double], expect: [Double], tol: D
 
         colorPrint("[\(label)] fail.", color:"red")
         colorPrint(message, color:"magenta")
+        colorPrint("Tolerance: \(tol)", color:"magenta")
 
     } catch {
 
@@ -183,6 +184,7 @@ func testEqualInTol(label: String, test:() -> [Float], expect: [Float], tol: Flo
 
         colorPrint("[\(label)] fail.", color:"red")
         colorPrint(message, color:"magenta")
+        colorPrint("Tolerance: \(tol)", color:"magenta")
 
     } catch {
 

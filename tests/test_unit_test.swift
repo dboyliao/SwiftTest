@@ -45,4 +45,5 @@ let answerTolDouble:[Double] = [1+1e-5, 2+2e-5, 3+3e-5]
 let answerTolFloat:[Float] = [1+1e-5, 2+2e-5, 3+3e-5]
 
 testEqualInTol("Equilation with Tolerance Double", test: testEqualInTolDouble, expect: answerTolDouble, tol: 1e-4)
+testEqualInTol("Equilation with Tolerance Double", test: testEqualInTolDouble, expect: answerTolDouble, tol: 1e-5)
 testEqualInTol("Equilation with Tolerance Float", test: testEqualInTolFloat, expect: answerTolFloat, tol: 1e-4)
