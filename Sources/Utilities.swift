@@ -30,7 +30,7 @@ func colorPrint(args:AnyObject..., color:String) {
 
 }
 
-func allClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
+func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
 
     /*
     Return `true` if x and y are element-wise equal within a tolerance.
@@ -68,7 +68,7 @@ func allClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
 
 }
 
-func allClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
+func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
 
     /*
     Return `true` if x and y are element-wise equal within a tolerance.

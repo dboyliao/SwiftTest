@@ -7,7 +7,7 @@ func testAllCloseFloatInTol() -> Bool {
     let y:[Float] = [1+1e-7, 2+2e-7, 3+3e-7, 4+4e-7, 5+5e-7]
     let tol:Float = 6e-7
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -17,7 +17,7 @@ func testAllCloseFloatOutTol() -> Bool {
     let y:[Float] = [1+1e-7, 2+2e-7, 3+3e-7, 4+4e-7, 5+5e-7]
     let tol:Float = 1e-8
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -27,7 +27,7 @@ func testAllCloseSingleFloatInTol() -> Bool {
     let y:[Float] = [1+3e-7]
     let tol:Float = 4e-7
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -37,7 +37,7 @@ func testAllCloseSingleFloatOutTol() -> Bool {
     let y:[Float] = [1+3e-7]
     let tol:Float = 1e-8
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -46,7 +46,7 @@ func testAllCloseDifferentLengthFloat() -> Bool {
     let x:[Float] = [1, 2]
     let y:[Float] = [1]
 
-    return allClose(x, y:y)
+    return testAllClose(x, y:y)
 }
 
 testEqual("Test allClose Float (in tolerance)", test:testAllCloseFloatInTol, expect:true)
@@ -61,7 +61,7 @@ func testAllCloseDoubleInTol() -> Bool {
     let y:[Double] = [1+1e-15, 2+2e-15, 3+3e-15, 4+4e-15, 5+5e-15]
     let tol:Double = 6e-15
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 }
 
 func testAllCloseDoubleOutTol() -> Bool {
@@ -70,7 +70,7 @@ func testAllCloseDoubleOutTol() -> Bool {
     let y:[Double] = [1+1e-15, 2+2e-15, 3+3e-15, 4+4e-15, 5+5e-15]
     let tol:Double = 1e-16
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 }
 
 func testAllCloseSingleDoubleInTol() -> Bool {
@@ -79,7 +79,7 @@ func testAllCloseSingleDoubleInTol() -> Bool {
     let y:[Double] = [1+3e-15]
     let tol:Double = 4e-15
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -89,7 +89,7 @@ func testAllCloseSingleDoubleOutTol() -> Bool {
     let y:[Double] = [1+3e-15]
     let tol:Double = 1e-16
 
-    return allClose(x, y:y, tol:tol)
+    return testAllClose(x, y:y, tol:tol)
 
 }
 
@@ -98,7 +98,7 @@ func testAllCloseDifferentLengthDouble() -> Bool {
     let x:[Double] = [1, 2]
     let y:[Double] = [1]
 
-    return allClose(x, y:y)
+    return testAllClose(x, y:y)
 }
 
 testEqual("Test allClose Double (in tolerance)", test:testAllCloseDoubleInTol, expect:true)
