@@ -4,18 +4,25 @@ example:
 	./example
 	rm tests/main.swift example
 
-test:
-	make test-equal-osx
+test-osx:
+	make test-unit-test-osx
 	make test-utilities-osx
+	make test-allclose-osx
 
 test-utilities-osx:
-	cp tests/test_utilities.swift main.swift
-	xcrun -sdk macosx swiftc Utilities.swift main.swift -o test
-	./test
-	rm main.swift test
+	cp tests/test_color_print.swift main.swift
+	xcrun -sdk macosx swiftc Sources/Utilities.swift main.swift -o test_color_print
+	./test_color_print
+	rm main.swift test_color_print
 
-test-equal-osx:
-	cp tests/test_equal.swift main.swift
-	xcrun -sdk macosx swiftc Utilities.swift Errors.swift Profile.swift main.swift -o test
-	./test
-	rm main.swift test
+test-unit-test-osx:
+	cp tests/test_unit_test.swift main.swift
+	xcrun -sdk macosx swiftc Sources/Utilities.swift Sources/Errors.swift Sources/UnitTest.swift main.swift -o test_unit_test
+	./test_unit_test
+	rm main.swift test_unit_test
+
+test-allclose-osx:
+	cp tests/test_allclose.swift main.swift
+	xcrun -sdk macosx swiftc Sources/Utilities.swift Sources/Errors.swift Sources/UnitTest.swift main.swift -o test_allclose
+	./test_allclose
+	rm main.swift test_allclose
