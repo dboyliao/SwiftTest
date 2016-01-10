@@ -22,7 +22,34 @@ testEqual("Testing Add (Fail)",
 
 If you compile above codes, you should see:
 
-![example_output](img/example_output.png)
+![example_output](img/example_equal.png)
+
+You can also test your result with tolerance:
+
+```{swift}
+func threshold(x:[Double], thres:Double) {
+    var result = [Double](count:x.count, repeatedValue:0.0)
+
+    for i in 0..<x.count {
+        if x[i] > 0.0 {
+            result[i] = x[i]
+        }
+    }
+    return result
+}
+
+func testThreshold() -> [Double]{
+    
+    let x:[Double] = [1, 2, -1, 3, -10, 30]
+
+    return threshold(x, thres:0.0)
+}
+
+let answerWithNoise:[Double] = [1.001, 2, 0, 3, 0, 30]
+
+testEqualInTol("Test on Thresholding", test:testThreshold, 
+               expect:answer, tol:1e-2)
+```
 
 Run `make example` to see the result above.
 

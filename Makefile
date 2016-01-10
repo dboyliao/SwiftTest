@@ -1,5 +1,9 @@
 example:
-	cp tests/example.swift tests/main.swift
+	cp tests/example_equal.swift tests/main.swift
+	sh ./tests/make_example.sh
+	./example
+	rm tests/main.swift example
+	cp tests/example_equal_tol.swift tests/main.swift
 	sh ./tests/make_example.sh
 	./example
 	rm tests/main.swift example
