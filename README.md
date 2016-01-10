@@ -22,7 +22,7 @@ testEqual("Testing Add (Fail)",
 
 If you compile above codes, you should see:
 
-![example_output](img/example_equal.png)
+![example_equal](img/example_equal.png)
 
 You can also test your result with tolerance:
 
@@ -50,6 +50,9 @@ let answerWithNoise:[Double] = [1.001, 2, 0, 3, 0, 30]
 testEqualInTol("Test on Thresholding", test:testThreshold, 
                expect:answer, tol:1e-2)
 ```
+
+The testing result would look like:
+![example_eqaul_tol](img/example_equal_tol.png)
 
 Run `make example` to see the result above.
 
