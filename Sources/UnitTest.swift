@@ -189,8 +189,11 @@ func equalInTol(label: String, test:() -> [Double], expect: [Double], tol:Double
         throw TestingError.LengthError(message:"Array length do not match.")
     }
 
-    if !testAllClose(result, y:expect, tol:tol) {
+    let (isClose, maxError) = testAllClose(result, y:expect, tol:tol)
 
+    if !isClose {
+
+        colorPrint("Error Maximum: \(maxError)", color:"red")
         if result.count < 20 {
             throw TestingError.NotEqualError(message:"Output: \(result)\nExpect: \(expect).")
         } else {
@@ -248,7 +251,10 @@ func equalInTol(label: String, test:() -> [Float], expect: [Float], tol:Float) t
         throw TestingError.LengthError(message:"Array length do not match.")
     }
 
-    if !testAllClose(result, y:expect, tol:tol) {
+    let (isClose, maxError) = testAllClose(result, y:expect, tol:tol)
+    if !isClose {
+
+        colorPrint("Error Maximum: \(maxError)", color:"red")
 
         if result.count < 20 {
             throw TestingError.NotEqualError(message:"Output: \(result)\nExpect: \(expect).")

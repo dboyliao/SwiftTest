@@ -55,7 +55,7 @@ func colorPrint(args:AnyObject..., color:String) {
     }
 }
 
-func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
+func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> (Bool, Double) {
 
     /*
     Return `true` if x and y are element-wise equal within a tolerance.
@@ -68,6 +68,7 @@ func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
     var inputX = [Double](x)
     var inputY = [Double](y)
     var isClosed = false
+    var maximum:Double = 0.0
 
     if x.count == y.count {
 
@@ -81,7 +82,6 @@ func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
         // Take abs value
         vDSP_vabsD(&xMinusY, 1, &xMinusY, 1, vDSP_Length(N))
 
-        var maximum:Double = 0
         vDSP_maxvD(&xMinusY, 1, &maximum, vDSP_Length(N))
 
         if maximum <= tol {
@@ -89,11 +89,11 @@ func testAllClose(x:[Double], y:[Double], tol:Double = 3e-7) -> Bool {
         }
     }
 
-    return isClosed
+    return (isClosed, maximum)
 
 }
 
-func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
+func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> (Bool, Float) {
 
     /*
     Return `true` if x and y are element-wise equal within a tolerance.
@@ -106,6 +106,7 @@ func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
     var inputX = [Float](x)
     var inputY = [Float](y)
     var isClosed = false
+    var maximum:Float = 0.0
 
     if x.count == y.count {
 
@@ -119,7 +120,6 @@ func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
         // Take abs value
         vDSP_vabs(&xMinusY, 1, &xMinusY, 1, vDSP_Length(N))
 
-        var maximum:Float = 0
         vDSP_maxv(&xMinusY, 1, &maximum, vDSP_Length(N))
 
         if maximum <= tol {
@@ -127,6 +127,6 @@ func testAllClose(x:[Float], y:[Float], tol:Float = 3e-7) -> Bool {
         }
     }
 
-    return isClosed
+    return (isClosed, maximum)
     
 }
